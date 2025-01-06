@@ -1,171 +1,179 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMI Official Website</title>
+    <link rel="icon" href="images/logo.ico" type="image/x-icon">
+    <title>Verifikasi dulu woe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            margin: 0;
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1e1e2f;
-            color: #c7c7d3;
-            line-height: 1.6;
         }
+
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #28293e;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        header {
             text-align: center;
-            padding: 20px 0;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
         }
-        header h1 {
-            margin: 0;
-            color: #8e44ad;
-            font-size: 2.5rem;
+
+        #target-color {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        main h2 {
-            color: #8e44ad;
-            margin-top: 20px;
-        }
+
         p {
-            margin: 10px 0;
-        }
-        .btn {
-            display: inline-block;
-            margin: 10px 5px;
-            padding: 12px 24px;
+            font-weight: 400;
             font-size: 1rem;
-            color: #ffffff;
-            background-color: #8e44ad;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 80%;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6c63ff;
+            color: white;
             border: none;
-            border-radius: 6px;
-            text-decoration: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 1rem;
             transition: background-color 0.3s ease;
         }
-        .btn:hover {
-            background-color: #732d91;
+
+        button:hover {
+            background-color: #5a52e0;
         }
-        .video-item {
-            background: #33354a;
-            border: 1px solid #8e44ad;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+
+        /* Pop-up styling */
+        #popup,
+        #wrong-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
         }
-        .video-item h3 {
-            margin: 0 0 10px 0;
-        }
-        .video-item a {
-            color: #50fa7b;
-            text-decoration: none;
-        }
-        .video-item a:hover {
-            text-decoration: underline;
-        }
-        footer {
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            padding: 10px;
-            background-color: #28293e;
-            color: #c7c7d3;
-            border-top: 1px solid #444;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-content p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <header>
-            <h1>Khabane Newton Official Website</h1>
-        </header>
-        <main>
-            <section>
-              <h2>Selamat Datang</h2>
-              <p>Halo, saya Khabane Newton! Selamat datang di situs resmi saya. Temukan informasi tentang karya, platform media sosial, dan lebih banyak lagi!</p>
-              <h2>Biodata Khabane Newton</h2>
-              <p>Khabane Newton, yang memiliki nama asli Abyan Ozil Pratama, lahir pada tanggal 9 Juli 2011 di Magelang, Indonesia. Sebagai seorang musisi muda berbakat, Khabane Newton memulai kariernya dengan penuh semangat untuk menciptakan karya yang dapat menginspirasi banyak orang. Nama panggungnya, "Khabane Newton," terinspirasi dari kombinasi dua nama besar: Khabane Lame dan Isaac Newton. Gabungan ini mencerminkan kreativitas serta kecintaan Khabane pada seni dan ilmu pengetahuan.
-                  Sejak usia muda, Khabane telah menunjukkan minat yang besar dalam dunia musik. Genre musiknya beragam, mencakup pop, hip-hop, dan elektronik. Ia tidak hanya bernyanyi tetapi juga menciptakan lagu-lagu yang penuh makna, menggabungkan lirik yang mendalam dengan melodi yang memikat.</p>
-              <h2>Perjalanan Karier</h2>
-              <p>Perjalanan karier Khabane Newton dimulai dengan merilis lagu-lagu independen di platform digital. Karya-karyanya mendapat perhatian karena keunikannya dalam menyampaikan pesan melalui musik. Salah satu titik penting dalam kariernya adalah peluncuran album pertamanya, yang telah tersedia untuk pre-save di platform musik utama.
+        <div id="target-color"></div>
+        <p>Coba ketik nama warna di atas ini</p>
+        <input type="text" id="color-input" placeholder="Ketik nama warna...">
+        <button onclick="checkColor()">Verifikasi</button>
+    </div>
 
-                  Selain menjadi musisi, Khabane Newton juga aktif sebagai kreator konten di platform seperti YouTube dan Spotify. Podcast-nya, KMI FM, menjadi ruang di mana ia berbagi cerita, pengalaman, dan pandangan hidup kepada pendengarnya.</p>
-              <h2>Pengaruh Dan Inspirasi</h2>
-              <p>Khabane Newton terinspirasi oleh berbagai musisi internasional dan lokal. Ia percaya bahwa musik adalah bahasa universal yang dapat menyatukan perbedaan dan membawa perubahan positif. Dalam setiap karya yang ia ciptakan, Khabane selalu berusaha untuk menyampaikan pesan moral dan inspirasi bagi pendengarnya.</p>
-              <h2>Proyek Dan Kolaborasi</h2>
-              <p>Selain karya solonya, Khabane Newton terbuka untuk berbagai kolaborasi dengan musisi lain. Ia juga aktif berinteraksi dengan penggemar melalui platform sosial, seperti Discord dan Instagram, untuk membangun komunitas yang mendukung pertumbuhan musiknya.</p>
-              <h2>Podcast KMI FM: Menjadi Platform Kreatif</h2>
-              <p>Salah satu platform utama yang digunakan oleh Khabane Newton untuk mengekspresikan ide-ide dan gagasannya adalah podcast. Podcast KMI FM yang dikelola oleh Khabane Newton bukan hanya sebuah medium untuk berbagi musik, tetapi juga sebagai ruang untuk berdiskusi tentang berbagai topik yang relevan dengan kehidupan anak muda, musik, dan perjalanan karirnya. Dengan konsep yang fresh dan autentik, KMI FM menjadi saluran yang menarik bagi para pendengar yang ingin lebih dekat dengan perjalanan karir Khabane Newton serta mendengarkan cerita di balik layar dari karya-karya yang ia rilis.
+    <div id="popup">
+        <div class="popup-content">
+            <p id="countdown">Selamat! Anda berhasil menjawab dengan benar!</p>
+        </div>
+    </div>
 
-                  Dalam podcastnya, Khabane sering mengundang tamu-tamu istimewa, baik dari dunia musik, seni, maupun industri kreatif lainnya. Diskusi yang dibangun pun tak terbatas hanya pada musik, melainkan mencakup topik-topik seperti proses kreatif, tantangan yang dihadapi dalam berkarya, hingga cerita tentang kehidupan sehari-hari para tamunya. Keunikan dari KMIFM adalah kemampuannya untuk menggabungkan cerita personal dengan diskusi yang lebih luas, membuat pendengar merasa terhubung dengan Khabane dan perjalanan hidupnya.</p>
-              <h2>Proyek Khabane Newton: Menjelajah Dunia Musik</h2>
-              <p>Khabane Newton telah menunjukkan komitmennya dalam industri musik dengan merilis sejumlah karya, termasuk album debut yang menandai tonggak penting dalam karir musiknya. Musik Khabane tidak hanya mengusung genre tertentu, tetapi lebih kepada eksplorasi suara yang beragam dan menciptakan identitas musik yang kuat. Proyek musiknya semakin berkembang seiring dengan kolaborasi dengan berbagai produser, musisi, dan penyanyi lain, yang memberikan warna baru dalam setiap karyanya.
-
-                  Album pertama Khabane, yang baru saja dirilis dengan pre-save yang menggugah antusiasme penggemarnya, menunjukkan kemampuannya untuk menciptakan karya yang tidak hanya bisa dinikmati oleh penggemar musik Indonesia, tetapi juga di luar negeri. Melalui proyek-proyek musiknya, Khabane selalu berusaha untuk menyampaikan pesan-pesan positif, menyentuh kehidupan remaja dan dinamika sosial yang terjadi di sekitar mereka.</p>
-              <h2>Kolaborasi dengan Musisi dan Kreator Lain</h2>
-              <p>Selain mengembangkan proyek solonya, Khabane Newton juga aktif menjalin kolaborasi dengan berbagai musisi dan kreator dari berbagai genre. Kolaborasi ini mencakup pembuatan lagu, penampilan bersama di atas panggung, hingga proyek video klip yang menggabungkan elemen visual dengan musiknya. Kolaborasi ini tidak hanya memperkaya katalog musik Khabane, tetapi juga memperluas jangkauan audiensnya di berbagai kalangan.
-
-                  Salah satu bentuk kolaborasi yang paling menonjol adalah melalui proyek bersama dengan produser atau musisi lain yang memiliki visi kreatif yang sejalan. Kerja sama seperti ini membawa pengalaman baru dalam proses pembuatan lagu, serta memperkenalkan Khabane kepada audiens yang lebih luas. Bahkan, kolaborasi ini seringkali menciptakan karya yang lebih berani dan inovatif, menggambarkan karakter Khabane yang selalu ingin mengeksplorasi batasan-batasan musik.</p>
-              <h2>Mendukung Komunitas dan Berkembang Bersama</h2>
-              <p>Selain berfokus pada karya-karya profesional, Khabane Newton juga dikenal dengan sikapnya yang ingin mendukung sesama musisi muda dan komunitas kreatif. Melalui kolaborasi, ia membantu mengangkat talenta-talenta baru yang memiliki potensi besar. Hal ini bisa dilihat dari keterlibatannya dalam proyek-proyek sosial yang melibatkan anak muda dan komunitas musik yang tengah berkembang.
-
-                  Sikap terbuka terhadap kolaborasi dan ingin terus berbagi pengetahuan serta pengalaman menjadikan Khabane lebih dari sekadar musisi; ia juga menjadi inspirasi bagi banyak orang, terutama bagi mereka yang ingin mengejar impian di dunia musik dan hiburan.</p>
-              <h2>Media Promosi</h2>    
-              <p>Berikut adalah media sosial yang di miliki oleh Khabane Newton, Kalian hanya pencet tombol di bawah ini</p>
-               </section>
-                <a href="https://saweria.co/KhabaneNewton12" class="btn">Saweria</a>
-                <a href="https://www.youtube.com/@KhabaneNewtonOfficial" class="btn">YouTube</a>
-                <a href="https://open.spotify.com/show/2IKRIegPwocjPGrYBrBsWb?si=9da62e4fe4114486" class="btn">KMI FM</a>
-                <a href="https://open.spotify.com/artist/4qp1Jh35kGq4pzj0bFZAN4?si=0cd33983f86d402d" class="btn">Spotify Artist</a>
-                <a href="https://discord.gg/UtKdcnf2rZ" class="btn">Discord</a>
-                <a href="https://forms.gle/4eLQJZ6MjQw28vvd9" class="btn">Feedback</a>
-            </section>
-
-            <section>
-                <h2>Video Terbaru</h2>
-                <ul id="latest-videos" class="video-list"></ul>
-            </section>
-
-            <section>
-                <h2>Video Terlama</h2>
-                <ul id="oldest-videos" class="video-list"></ul>
-            </section>
-        </main>
-
-        <footer>
-            &copy; 2024 Khabane Newton. All Rights Reserved.
-        </footer>
+    <div id="wrong-popup">
+        <div class="popup-content">
+            <p>Anda salah. Coba lagi dengan warna baru!</p>
+        </div>
     </div>
 
     <script>
-        const apiKey = 'AIzaSyBSZp1QSxhI2ys7DdIs3dhQ-VUtmaNNBJ0';
-        const channelId = 'UCnHbiarag20EzIjSXDl0tJA';
+        // Warna dalam bahasa Indonesia
+        const colors = [
+            { id: "kuning", hex: "yellow" },
+            { id: "biru", hex: "blue" },
+            { id: "merah", hex: "red" },
+            { id: "hijau", hex: "green" },
+            { id: "hitam", hex: "black" },
+            { id: "abu-abu", hex: "gray" }
+        ];
 
-        async function fetchVideos(order, elementId) {
-            const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=${order}&maxResults=5`);
-            const data = await response.json();
+        const targetColorDiv = document.getElementById("target-color");
+        const input = document.getElementById("color-input");
+        const popup = document.getElementById("popup");
+        const wrongPopup = document.getElementById("wrong-popup");
 
-            const videoList = document.getElementById(elementId);
-            videoList.innerHTML = '';
-
-            data.items.forEach(item => {
-                const videoItem = document.createElement('li');
-                videoItem.className = 'video-item';
-                videoItem.innerHTML = `
-                    <h3>${item.snippet.title}</h3>
-                    <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank">Tonton Video</a>
-                `;
-                videoList.appendChild(videoItem);
-            });
+        // Fungsi untuk memilih warna acak
+        function setRandomColor() {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            targetColorDiv.style.backgroundColor = randomColor.hex;
+            return randomColor.id;
         }
 
-        fetchVideos('date', 'latest-videos');
-        fetchVideos('date', 'oldest-videos');
+        // Set warna pertama
+        let currentColor = setRandomColor();
+
+        function checkColor() {
+    const userInput = input.value.toLowerCase();
+    if (userInput === currentColor) {
+        popup.style.display = "flex";
+        setTimeout(() => {
+            popup.style.display = "none";
+            window.location.href = "verifikasi.html"; // Ganti dengan URL halaman tujuan
+        }, 3000);
+    } else {
+        wrongPopup.style.display = "flex";
+        setTimeout(() => { wrongPopup.style.display = "none"; }, 2000);
+        currentColor = setRandomColor(); // Ganti ke warna baru
+    }
+    input.value = ""; // Bersihkan input
+}
+
     </script>
 </body>
+
 </html>
