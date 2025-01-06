@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.ico" type="image/x-icon">
+    <title>Verifikasi dulu woe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        #target-color {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 80%;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5a52e0;
+        }
+
+        /* Pop-up styling */
+        #popup,
+        #wrong-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .popup-content p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="target-color"></div>
+        <p>Coba ketik nama warna di atas ini</p>
+        <input type="text" id="color-input" placeholder="Ketik nama warna...">
+        <button onclick="checkColor()">Verifikasi</button>
+    </div>
+
+    <div id="popup">
+        <div class="popup-content">
+            <p id="countdown">Selamat! Anda berhasil menjawab dengan benar!</p>
+        </div>
+    </div>
+
+    <div id="wrong-popup">
+        <div class="popup-content">
+            <p>Anda salah. Coba lagi dengan warna baru!</p>
+        </div>
+    </div>
+
+    <script>
+        // Warna dalam bahasa Indonesia
+        const colors = [
+            { id: "kuning", hex: "yellow" },
+            { id: "biru", hex: "blue" },
+            { id: "merah", hex: "red" },
+            { id: "hijau", hex: "green" },
+            { id: "hitam", hex: "black" },
+            { id: "abu-abu", hex: "gray" }
+        ];
+
+        const targetColorDiv = document.getElementById("target-color");
+        const input = document.getElementById("color-input");
+        const popup = document.getElementById("popup");
+        const wrongPopup = document.getElementById("wrong-popup");
+
+        // Fungsi untuk memilih warna acak
+        function setRandomColor() {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            targetColorDiv.style.backgroundColor = randomColor.hex;
+            return randomColor.id;
+        }
+
+        // Set warna pertama
+        let currentColor = setRandomColor();
+
+        function checkColor() {
+    const userInput = input.value.toLowerCase();
+    if (userInput === currentColor) {
+        popup.style.display = "flex";
+        setTimeout(() => {
+            popup.style.display = "none";
+            window.location.href = "index.html"; // Ganti dengan URL halaman tujuan
+        }, 3000);
+    } else {
+        wrongPopup.style.display = "flex";
+        setTimeout(() => { wrongPopup.style.display = "none"; }, 2000);
+        currentColor = setRandomColor(); // Ganti ke warna baru
+    }
+    input.value = ""; // Bersihkan input
+}
+
+    </script>
+</body>
+
+</html>
