@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bantuan Login / Login Help</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .help-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 520px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    li::before {
+      content: "🔍 ";
+    }
+
+    a {
+      color: #00cfff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #00cfff;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #00aacc;
+    }
+  </style>
+</head>
+<body>
+  <div class="help-box">
+    <h1>Butuh Bantuan Login?</h1>
+    <p>Jika kamu kesulitan masuk ke akunmu, coba langkah-langkah berikut:</p>
+
+    <ul>
+      <li>Pastikan koneksi internet kamu stabil.</li>
+      <li>Periksa ejaan nama pengguna dan kata sandi.</li>
+      <li>Hindari penggunaan spasi atau huruf besar yang tidak perlu.</li>
+      <li>Jika kamu menggunakan verifikasi warna, pastikan warnanya sesuai dalam bahasa Indonesia atau Inggris.</li>
+      <li>Refresh halaman dan coba ulangi langkah verifikasi.</li>
+    </ul>
+
+    <p>Masih bingung? Tonton tutorial login lengkap dengan klik tombol di bawah ini.</p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn" onclick="rickroll()">Lihat Tutorial</a>
+    <br><br>
+    <a href="verifikasi.html">← Kembali ke Halaman Login</a>
+  </div>
+
+  <script>
+    function rickroll() {
+      alert("ente yakin nih buat nonton video tutorial?");
+    }
+  </script>
+</body>
+</html>
