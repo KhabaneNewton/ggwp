@@ -37,3 +37,11 @@ themeSwitch.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     themeSwitch.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
 });
+if (userInput === currentQuestion.answer) {
+    popup.style.display = "flex";
+    setTimeout(() => {
+      popup.style.display = "none";
+      window.location.href = "index.html"; // GANTI HALAMAN DI SINI
+    }, 3000);
+  }
+  
