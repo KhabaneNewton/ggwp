@@ -87,6 +87,20 @@
       border-top: 1px solid #333;
       margin-top: 40px;
     }
+
+    .video-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .video-item {
+      margin-bottom: 20px;
+    }
+
+    .video-item h3 {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -94,10 +108,7 @@
   <div id="sticky-title">KMI OFFICIAL WEBSITE</div>
 
   <div class="container">
-    <h2>Selamat Datang</h2>
-    <p>Halo, saya Khabane Newton! Selamat datang di situs resmi saya.</p>
-
-    <h2>Selamat Datang</h2>
+    < <h2>Selamat Datang</h2>
     <p>Halo, saya Khabane Newton! Selamat datang di situs resmi saya. Temukan informasi tentang karya, platform media sosial, dan lebih banyak lagi!</p>
     <h2>Biodata Khabane Newton</h2>
     <p>Khabane Newton, yang memiliki nama asli Abyan Ozil Pratama, lahir pada tanggal 9 Juli 2011 di Magelang, Indonesia. Sebagai seorang musisi muda berbakat, Khabane Newton memulai kariernya dengan penuh semangat untuk menciptakan karya yang dapat menginspirasi banyak orang. Nama panggungnya, "Khabane Newton," terinspirasi dari kombinasi dua nama besar: Khabane Lame dan Isaac Newton. Gabungan ini mencerminkan kreativitas serta kecintaan Khabane pada seni dan ilmu pengetahuan.
@@ -161,47 +172,53 @@
         <a href="https://open.spotify.com/artist/4qp1Jh35kGq4pzj0bFZAN4?si=0cd33983f86d402d" class="btn">Artist</a>
         <a href="https://discord.gg/UtKdcnf2rZ" class="btn">Discord</a>
         <a href="https://forms.gle/4eLQJZ6MjQw28vvd9" class="btn">Feedback</a>
-        <section>
-            <h2>🎬 Shorts (di bawah 1 menit)</h2>
-            <ul id="shorts-videos" class="video-list"></ul>
-          </section>
-          
-          <section>
-            <h2>📡 Live Streaming</h2>
-            <ul id="live-videos" class="video-list"></ul>
-          </section>
-          
-          <section>
-            <h2>🎥 Video Panjang (5 menit ke atas)</h2>
-            <ul id="long-videos" class="video-list"></ul>
-          </section>          
-          
+    </body>
+    </html>
+
+    <section>
+      <h2>🎬 Shorts (di bawah 1 menit)</h2>
+      <ul id="shorts-videos" class="video-list"></ul>
+    </section>
+    
+    <section>
+      <h2>📡 Live Streaming</h2>
+      <ul id="live-videos" class="video-list"></ul>
+    </section>
+    
+    <section>
+      <h2>🎥 Video Panjang (5 menit ke atas)</h2>
+      <ul id="long-videos" class="video-list"></ul>
+    </section>
+  </div>
+
   <footer>
     &copy; 2025 Khabane Newton. All rights reserved.
   </footer>
+
   <script>
-    const apiKey = 'AIzaSyBSZp1QSxhI2ys7DdIs3dhQ-VUtmaNNBJ0';
+    const apiKey = 'AIzaSyBSZp1QSxhI2ys7DdIs3dhQ-VUtmaNNBJ0'; // Ganti dengan API Key kamu
     const channelId = 'UCnHbiarag20EzIjSXDl0tJA';
-  
+
     async function fetchVideos() {
       const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10`);
       const data = await response.json();
-  
+
       const videoIds = data.items
         .filter(item => item.id.kind === "youtube#video")
         .map(item => item.id.videoId)
         .join(',');
-  
+
       const videoDetailsResponse = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${videoIds}&part=contentDetails,snippet`);
       const videoDetails = await videoDetailsResponse.json();
-  
+
       videoDetails.items.forEach(item => {
         const duration = item.contentDetails.duration;
         const seconds = parseISO8601Duration(duration);
-  
-        const isShort = seconds < 60;
-        const listElement = document.getElementById(isShort ? 'shorts-videos' : 'long-videos');
-  
+
+        let listId = 'long-videos';
+        if (seconds < 60) listId = 'shorts-videos';
+
+        const listElement = document.getElementById(listId);
         const videoItem = document.createElement('li');
         videoItem.className = 'video-item';
         videoItem.innerHTML = `
@@ -212,17 +229,17 @@
         listElement.appendChild(videoItem);
       });
     }
-    
+
     function parseISO8601Duration(duration) {
       const match = duration.match(/PT(?:(\d+)M)?(?:(\d+)S)?/);
       const minutes = parseInt(match?.[1]) || 0;
       const seconds = parseInt(match?.[2]) || 0;
       return minutes * 60 + seconds;
     }
-  
+
     fetchVideos();
   </script>
-  
+
   <script>
     const title = document.getElementById('sticky-title');
     window.addEventListener('scroll', () => {
@@ -233,5 +250,6 @@
       }
     });
   </script>
+
 </body>
 </html>
